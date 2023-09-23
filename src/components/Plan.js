@@ -44,6 +44,7 @@ function Plan() {
           })
      
         setPlanData(updatedPlanData);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [days]);
 
     useEffect(() => {
@@ -56,10 +57,12 @@ function Plan() {
         });
 
         setPlanData(updatedPlanData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [date])
 
     useEffect(() => {
         setPlanData(initialContent());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
     const dayList = dateArray().map((arrayDate, index) => (

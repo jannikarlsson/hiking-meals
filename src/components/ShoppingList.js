@@ -7,6 +7,7 @@ function ShoppingList({ mealsList }) {
 
     useEffect(() => {
         setList(Object.values(mealsList).flatMap(innerArray => innerArray).filter(item => item !== foods[0]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mealsList]);
 
     const sortList = () => {

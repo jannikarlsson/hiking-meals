@@ -11,16 +11,19 @@ function Day({ date, dayNumber, updatePlanData }) {
 
     useEffect(() => {
         updatePlanData(date, totalMeals)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if (meals.length > 0) {
           setTotalMeals([...totalMeals, foods[0]]);
         }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [meals]);
 
     useEffect(() => {
         updatePlanData(date, totalMeals)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [totalMeals]);
 
     const changeTotal = (index, meal) => {
