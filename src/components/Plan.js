@@ -63,13 +63,13 @@ function Plan() {
       }, []);
 
     const dayList = dateArray().map((arrayDate, index) => (
+        <div className="col-6">
         <Day key={index} date={arrayDate} dayNumber={index + 1} updatePlanData={updatePlanData}/>
+        </div>
       ))
 
     return <div>
-        Number of days: {days}, starting {date.toLocaleDateString()}
-        {dayList}
-        <div><ShoppingList mealsList={planData}/></div>
+        <div className="container m-auto row mt-3 mb-3">{dayList}{dayList.length > 0 && <div className="col-6"><ShoppingList mealsList={planData}/></div>}</div>
     </div>
 }
 export default Plan;

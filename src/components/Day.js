@@ -31,17 +31,23 @@ function Day({ date, dayNumber, updatePlanData }) {
 
     const renderedMeals = meals.map((meal, index) => {
         return (
-            <div key={index}>
-                <div>{meal}</div>
-                <div><Meal index={index} handleSelection={changeTotal}/></div>
+            <div key={index} className="p-2">
+                <div><Meal index={index} handleSelection={changeTotal} meal={meal} /></div>
             </div>
         )
     })
         
     return (
         <>
-        <div>Day {dayNumber}, {date.toLocaleDateString()}</div>
-        {renderedMeals}
+        <div className="card mt-3">
+            <div className="card-header pt-3 bg-info">
+                <h5 className="card-title">Dag {dayNumber}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">{date.toLocaleDateString()}</h6>
+            </div>
+            <div className="card-body">
+                {renderedMeals}
+            </div>
+        </div>
         </>
     ) 
 }

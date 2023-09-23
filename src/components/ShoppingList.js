@@ -29,6 +29,15 @@ function ShoppingList({ mealsList }) {
 
     const renderedMealsList = sortList().map((meal, index) => <div key={index}>{meal}</div>)
 
-    return <div>{renderedMealsList}</div>
+    return (
+        <div className="card mt-3 bg-warning">
+            <div className="card-header pt-3">
+                <h5 className="card-title">Sammanställning</h5>
+            </div>
+            <div className="card-body">
+            {renderedMealsList}
+            </div>
+        </div>
+    )
 }
 export default ShoppingList;
