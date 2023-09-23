@@ -23,8 +23,8 @@ function DateInput() {
   };
 
   return (
-    <div className="input-group mb-3 col">
-        <span className="input-group-text">När startar du?</span>
+    <div className="input-group mb-3 col-12 col-md">
+        <span className="input-group-text">När startar ni?</span>
         <input
             className="form-control"
             type="date"

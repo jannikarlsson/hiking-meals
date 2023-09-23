@@ -20,7 +20,7 @@ function Select({ changeFunction, items, header }) {
         }
       };
 
-    const renderChips = items.map((item, index) => <span className="badge bg-success d-flex me-2" key={index}>{item}</span>)
+    const renderChips = items.map((item, index) => <span className="badge bg-success d-flex me-2 mb-2" key={index}>{item}</span>)
 
 
     return (
@@ -39,7 +39,7 @@ function Select({ changeFunction, items, header }) {
                 <button className="btn btn-warning" type="submit" onClick={handleSubmit}>Lägg till</button>
             </div>
         </div>
-        <div className="d-flex mt-2 flex-shrink-1">{renderChips}</div></div>
+        <div className="mt-2 d-inline-flex flex-wrap">{renderChips}</div></div>
     )
 }
 export default Select;

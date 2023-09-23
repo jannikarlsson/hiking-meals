@@ -32,7 +32,7 @@ function Day({ date, dayNumber, updatePlanData }) {
     const renderedMeals = meals.map((meal, index) => {
         return (
             <div key={index} className="p-2">
-                <div><Meal index={index} handleSelection={changeTotal} meal={meal} /></div>
+                <div><Meal key={index} index={index} handleSelection={changeTotal} meal={meal} /></div>
             </div>
         )
     })

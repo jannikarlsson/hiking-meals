@@ -3,7 +3,7 @@ import { PlanContext } from "../contexts/PlanContext";
 
 function ShoppingList({ mealsList }) {
     const [list, setList] = useState([]);
-    const { foods } = useContext(PlanContext);
+    const { foods, people } = useContext(PlanContext);
 
     useEffect(() => {
         setList(Object.values(mealsList).flatMap(innerArray => innerArray).filter(item => item !== foods[0]));
@@ -13,7 +13,7 @@ function ShoppingList({ mealsList }) {
         const counts = {};
 
         for (const item of list) {
-            counts[item] = (counts[item] || 0) + 1;
+            counts[item] = (counts[item] || 0) + (1 * people);
         }
 
         const formattedList = [];
