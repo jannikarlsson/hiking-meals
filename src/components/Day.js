@@ -39,8 +39,8 @@ function Day({ date, dayNumber, updatePlanData }) {
         
     return (
         <>
-        <div className="card mt-3">
-            <div className="card-header pt-3 bg-info">
+        <div className="card mt-3 bg-light">
+            <div className="card-header pt-3">
                 <h5 className="card-title">Dag {dayNumber}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{date.toLocaleDateString()}</h6>
             </div>

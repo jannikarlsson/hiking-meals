@@ -24,19 +24,22 @@ function Select({ changeFunction, items, header }) {
 
 
     return (
-        <div className="mt-3"><div>{header}</div>
+        <div className="mt-3">
         <div className="d-flex justify-content-between gap-3">
             <div className="d-flex flex-grow-1">
-                <input
-                    className="form-control"
-                    type="text"
-                    value={inputValue}
-                    onChange={handleInput}
-                    onKeyUp={handleKeyPress}
-                />
+                <div className="input-group">
+                <span className="input-group-text">{header}</span>
+                    <input
+                        className="form-control"
+                        type="text"
+                        value={inputValue}
+                        onChange={handleInput}
+                        onKeyUp={handleKeyPress}
+                    />
+                </div>
             </div>
             <div className="d-flex">
-                <button className="btn btn-warning" type="submit" onClick={handleSubmit}>Lägg till</button>
+                <button className="btn btn-info" type="submit" onClick={handleSubmit}>Lägg till</button>
             </div>
         </div>
         <div className="mt-2 d-inline-flex flex-wrap">{renderChips}</div></div>
