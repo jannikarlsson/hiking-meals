@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { PlanContext } from "../contexts/PlanContext";
 
-function Meal({ foods, index, handleSelection }) {
+function Meal({ index, handleSelection }) {
+    const { foods } = useContext(PlanContext);
+
     const [food, setFood] = useState(foods[0]);
 
     const onChange = (event) => {

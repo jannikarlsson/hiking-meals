@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import DateInput from "./DateInput";
 import Select from "./Select";
+import { PlanContext } from "../contexts/PlanContext";
 
-function Form({ changeMeals, meals, changeFoods, foods, changeDays, days, changeDate, date }) {
+function Form() {
+    const { days, setDays, meals, setMeals, foods, setFoods } = useContext(PlanContext);
 
     const handleDaysInput = (event) => {
-        changeDays(event.target.value);
+        setDays(event.target.value);
     }
 
     return (
@@ -14,9 +17,9 @@ function Form({ changeMeals, meals, changeFoods, foods, changeDays, days, change
                 value={days}
                 onChange={handleDaysInput}
             />
-            <DateInput date={date} changeDate={changeDate} />
-            <Select changeFunction={changeMeals} items={meals} header="Select meals:" />
-            <Select changeFunction={changeFoods} items={foods} header="Select foods:"/>
+            <DateInput />
+            <Select changeFunction={setMeals} items={meals} header="Select meals:" />
+            <Select changeFunction={setFoods} items={foods} header="Select foods:"/>
         </div>
     )
 }

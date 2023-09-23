@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Meal from "./Meal";
+import { PlanContext } from "../contexts/PlanContext";
 
-function Day({ date, dayNumber, meals, foods, updatePlanData }) {
-    const setInital = () => meals.map(meal => foods[0]);
+function Day({ date, dayNumber, updatePlanData }) {
+    const { meals, foods } = useContext(PlanContext);
+
+    const setInital = () => meals.map(_ => foods[0]);
 
     const [totalMeals, setTotalMeals] = useState(setInital());
 
@@ -28,7 +31,7 @@ function Day({ date, dayNumber, meals, foods, updatePlanData }) {
         return (
             <div key={index}>
                 <div>{meal}</div>
-                <div><Meal foods={foods} index={index} handleSelection={changeTotal}/></div>
+                <div><Meal index={index} handleSelection={changeTotal}/></div>
             </div>
         )
     })

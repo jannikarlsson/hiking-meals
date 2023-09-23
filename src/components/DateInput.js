@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { PlanContext } from '../contexts/PlanContext';
 
-function DateInput({ date, changeDate }) {
+function DateInput() {
   const [formattedDate, setFormattedDate] = useState('');
+  const { date, setDate } = useContext(PlanContext);
 
   useEffect(() => {
     const year = date.getFullYear();
@@ -17,7 +19,7 @@ function DateInput({ date, changeDate }) {
 
     const [year, month, day] = newFormattedDate.split('-').map(Number);
     const newDate = new Date(year, month - 1, day);
-    changeDate(newDate);
+    setDate(newDate);
   };
 
   return (

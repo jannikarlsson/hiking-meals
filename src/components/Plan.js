@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Day from "./Day";
 import ShoppingList from "./ShoppingList";
+import { PlanContext } from "../contexts/PlanContext";
 
-function Plan({ meals, days, date, foods }) {
+function Plan() {
+    const { days, date, meals, foods } = useContext(PlanContext);
 
     const dateArray = () =>  Array.from({ length: days }, (_, index) => {
         const newDate = new Date(date);
@@ -61,7 +63,7 @@ function Plan({ meals, days, date, foods }) {
       }, [meals]);
 
     const dayList = dateArray().map((arrayDate, index) => (
-        <Day key={index} date={arrayDate} dayNumber={index + 1} meals={meals} foods={foods} updatePlanData={updatePlanData}/>
+        <Day key={index} date={arrayDate} dayNumber={index + 1} updatePlanData={updatePlanData}/>
       ))
 
     return <div>
