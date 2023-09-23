@@ -11,15 +11,17 @@ function Form() {
     }
 
     return (
-        <div>
-            <input
-                type="number"
-                value={days}
-                onChange={handleDaysInput}
-            />
-            <DateInput />
-            <Select changeFunction={setMeals} items={meals} header="Select meals:" />
-            <Select changeFunction={setFoods} items={foods} header="Select foods:"/>
+        <div className="mt-3">
+            <div className="container row m-auto">
+                <div className="input-group mb-3 col">
+                    <span className="input-group-text">Hur många dagar ska du vandra?</span>
+                    <input type="number" className="form-control" value={days}
+                    onChange={handleDaysInput} min="0"/>
+                </div>
+                <DateInput />
+                <Select changeFunction={setMeals} items={meals} header="Lägg till måltid:" />
+                <Select changeFunction={setFoods} items={foods} header="Lägg till mat:"/>
+            </div>
         </div>
     )
 }

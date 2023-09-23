@@ -23,11 +23,16 @@ function DateInput() {
   };
 
   return (
-    <input
-      type="date"
-      value={formattedDate}
-      onChange={handleDateChange}
-    />
+    <div className="input-group mb-3 col">
+        <span className="input-group-text">När startar du?</span>
+        <input
+            className="form-control"
+            type="date"
+            value={formattedDate}
+            onChange={handleDateChange}
+        />
+    </div>
+    
   );
 }
 

@@ -12,7 +12,7 @@ function Meal({ index, handleSelection }) {
     }
 
     return (
-      <select value={food} onChange={onChange}>
+      <select value={food} onChange={onChange} className="form-select">
         {foods.map((item, index) => (
           <option key={index} value={item}>
             {item}
