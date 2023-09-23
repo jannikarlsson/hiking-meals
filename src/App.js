@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Form from './components/Form';
+import Plan from './components/Plan';
 
 function App() {
+  const [meals, setMeals] = useState([]);
+  const [foods, setFoods] = useState(['Ingen mat behövs']);
+  const [days, setDays] = useState(0);
+  const [date, setDate] = useState(new Date());
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form changeMeals={setMeals} meals={meals} changeFoods={setFoods} foods={foods} changeDays={setDays} days={days} changeDate={setDate} date={date} />
+      <Plan meals={meals} days={days} date={date} foods={foods} />
     </div>
   );
 }
