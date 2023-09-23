@@ -14,8 +14,10 @@ function Day({ date, dayNumber, updatePlanData }) {
     }, []);
 
     useEffect(() => {
-        setTotalMeals(setInital())
-    }, [meals]);
+        if (meals.length > 0) {
+          setTotalMeals([...totalMeals, foods[0]]);
+        }
+      }, [meals]);
 
     useEffect(() => {
         updatePlanData(date, totalMeals)

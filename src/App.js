@@ -1,8 +1,8 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Plan from './components/Plan';
-import { PlanContext, PlanProvider } from './contexts/PlanContext';
+import { PlanProvider } from './contexts/PlanContext';
 
 function App() {
   const [meals, setMeals] = useState([]);

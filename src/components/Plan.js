@@ -20,11 +20,11 @@ function Plan() {
     const [planData, setPlanData] = useState(initialContent());
 
     const updatePlanData = (date, data) => {
-        setPlanData({
-            ...planData,
-            [date]: data
-        })
-    }
+        setPlanData((prevPlanData) => ({
+          ...prevPlanData,
+          [date]: data,
+        }));
+      };
 
     useEffect(() => {
         const newDates = dateArray().map(date => date.toString());
@@ -60,7 +60,7 @@ function Plan() {
 
     useEffect(() => {
         setPlanData(initialContent());
-      }, [meals]);
+      }, []);
 
     const dayList = dateArray().map((arrayDate, index) => (
         <Day key={index} date={arrayDate} dayNumber={index + 1} updatePlanData={updatePlanData}/>
