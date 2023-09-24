@@ -1,16 +1,12 @@
-import { useState } from 'react';
 import Form from './components/Form';
 import Plan from './components/Plan';
 import { PlanProvider } from './contexts/PlanContext';
 
 function App() {
-  const [meals, setMeals] = useState([]);
-  const [foods, setFoods] = useState(['Ingen mat behövs']);
-
   return (
     <PlanProvider>
       <div className="App">
-        <Form changeMeals={setMeals} meals={meals} changeFoods={setFoods} foods={foods} />
+        <Form />
         <Plan />
       </div>
     </PlanProvider>

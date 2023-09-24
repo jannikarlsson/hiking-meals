@@ -4,7 +4,8 @@ import ShoppingList from "./ShoppingList";
 import { PlanContext } from "../contexts/PlanContext";
 
 function Plan() {
-    const { days, date, meals, foods } = useContext(PlanContext);
+    const { state } = useContext(PlanContext);
+    const { days, date, meals, foods } = state;
 
     const dateArray = () =>  Array.from({ length: days }, (_, index) => {
         const newDate = new Date(date);
@@ -66,8 +67,8 @@ function Plan() {
       }, []);
 
     const dayList = dateArray().map((arrayDate, index) => (
-        <div className="col-12 col-md-6">
-        <Day key={index} date={arrayDate} dayNumber={index + 1} updatePlanData={updatePlanData}/>
+        <div className="col-12 col-md-6" key={index}>
+        <Day date={arrayDate} dayNumber={index + 1} updatePlanData={updatePlanData}/>
         </div>
       ))
 

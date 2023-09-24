@@ -3,7 +3,8 @@ import { PlanContext } from "../contexts/PlanContext";
 
 function ShoppingList({ mealsList }) {
     const [list, setList] = useState([]);
-    const { foods, people } = useContext(PlanContext);
+    const { state } = useContext(PlanContext);
+    const { foods, people } = state;
 
     useEffect(() => {
         setList(Object.values(mealsList).flatMap(innerArray => innerArray).filter(item => item !== foods[0]));

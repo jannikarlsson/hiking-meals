@@ -4,14 +4,23 @@ import Select from "./Select";
 import { PlanContext } from "../contexts/PlanContext";
 
 function Form() {
-    const { days, setDays, meals, setMeals, foods, setFoods, people, setPeople } = useContext(PlanContext);
+    const { state, setState } = useContext(PlanContext);
+    const { days, meals, foods, people } = state;
 
     const handleDaysInput = (event) => {
-        setDays(event.target.value);
+        setState({...state, days: event.target.value})
     }
 
     const handlePeopleInput = (event) => {
-        setPeople(event.target.value);
+        setState({...state, people: event.target.value})
+    }
+
+    const handleSetMeals = (value) => {
+        setState({...state, meals: value})
+    }
+
+    const handleSetFoods = (value) => {
+        setState({...state, foods: value})
     }
 
     return (
@@ -28,8 +37,8 @@ function Form() {
                     onChange={handleDaysInput} min="0"/>
                 </div>
                 <DateInput />
-                <Select changeFunction={setMeals} items={meals} header="Lägg till måltid:" />
-                <Select changeFunction={setFoods} items={foods} header="Lägg till mat:"/>
+                <Select changeFunction={handleSetMeals} items={meals} header="Lägg till måltid:" />
+                <Select changeFunction={handleSetFoods} items={foods} header="Lägg till mat:"/>
             </div>
         </div>
     )

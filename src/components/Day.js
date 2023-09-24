@@ -3,7 +3,8 @@ import Meal from "./Meal";
 import { PlanContext } from "../contexts/PlanContext";
 
 function Day({ date, dayNumber, updatePlanData }) {
-    const { meals, foods } = useContext(PlanContext);
+    const { state } = useContext(PlanContext);
+    const { meals, foods } = state;
 
     const setInital = () => meals.map(_ => foods[0]);
 

@@ -3,7 +3,8 @@ import { PlanContext } from '../contexts/PlanContext';
 
 function DateInput() {
   const [formattedDate, setFormattedDate] = useState('');
-  const { date, setDate } = useContext(PlanContext);
+  const { state, setState } = useContext(PlanContext);
+  const { date } = state;
 
   useEffect(() => {
     const year = date.getFullYear();
@@ -19,7 +20,7 @@ function DateInput() {
 
     const [year, month, day] = newFormattedDate.split('-').map(Number);
     const newDate = new Date(year, month - 1, day);
-    setDate(newDate);
+    setState({...state, date: newDate})
   };
 
   return (
