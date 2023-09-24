@@ -1,14 +1,19 @@
 import React, { createContext, useState } from 'react';
+import TEXTS from '../texts';
 
 const PlanContext = createContext();
 
 const PlanProvider = ({ children }) => {
+
+    const defaultLanguage = 'sv'
+
     const [state, setState] = useState({
       people: 1,
       days: 0,
       date: new Date(),
       meals: [],
-      foods: ['Ingen mat behövs'],
+      language: defaultLanguage,
+      foods: [TEXTS[defaultLanguage].noMeal],
     });
   
     return (

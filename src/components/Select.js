@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import TEXTS from "../texts";
+import { PlanContext } from "../contexts/PlanContext";
 
 function Select({ changeFunction, items, header }) {
     const [inputValue, setInputValue] = useState('');
+    const { state: { language } } = useContext(PlanContext);
 
     const handleInput = (event) => {
         const string = event.target.value;
@@ -39,7 +42,7 @@ function Select({ changeFunction, items, header }) {
                 </div>
             </div>
             <div className="d-flex">
-                <button className="btn btn-info" type="submit" onClick={handleSubmit}>Lägg till</button>
+                <button className="btn btn-info" type="submit" onClick={handleSubmit}>{TEXTS[language].add}</button>
             </div>
         </div>
         <div className="mt-2 d-inline-flex flex-wrap">{renderChips}</div></div>

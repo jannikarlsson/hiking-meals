@@ -5,7 +5,7 @@ import { PlanProvider } from './contexts/PlanContext';
 function App() {
   return (
     <PlanProvider>
-      <div className="App">
+      <div>
         <Form />
         <Plan />
       </div>

@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import Meal from "./Meal";
 import { PlanContext } from "../contexts/PlanContext";
+import TEXTS from "../texts";
 
 function Day({ date, dayNumber, updatePlanData }) {
-    const { state: { meals, foods } } = useContext(PlanContext);
+    const { state: { meals, foods, language } } = useContext(PlanContext);
 
     const setInital = () => meals.map(_ => foods[0]);
 
@@ -44,7 +45,7 @@ function Day({ date, dayNumber, updatePlanData }) {
         <>
         <div className="card mt-3 bg-light">
             <div className="card-header pt-3">
-                <h5 className="card-title">Dag {dayNumber}</h5>
+                <h5 className="card-title">{TEXTS[language].day} {dayNumber}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{date.toLocaleDateString()}</h6>
             </div>
             <div className="card-body">
