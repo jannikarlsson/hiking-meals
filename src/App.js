@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import Form from './components/Form';
 import Plan from './components/Plan';
 import { PlanProvider } from './contexts/PlanContext';
