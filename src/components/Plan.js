@@ -4,8 +4,7 @@ import ShoppingList from "./ShoppingList";
 import { PlanContext } from "../contexts/PlanContext";
 
 function Plan() {
-    const { state } = useContext(PlanContext);
-    const { days, date, meals, foods } = state;
+    const { state: { days, date, meals, foods } } = useContext(PlanContext);
 
     const dateArray = () =>  Array.from({ length: days }, (_, index) => {
         const newDate = new Date(date);

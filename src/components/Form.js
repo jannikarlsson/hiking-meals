@@ -7,20 +7,24 @@ function Form() {
     const { state, setState } = useContext(PlanContext);
     const { days, meals, foods, people } = state;
 
+    const handleStateUpdate = (property, value) => {
+        setState({ ...state, [property]: value });
+    }
+
     const handleDaysInput = (event) => {
-        setState({...state, days: event.target.value})
+        handleStateUpdate('days', event.target.value);
     }
 
     const handlePeopleInput = (event) => {
-        setState({...state, people: event.target.value})
+        handleStateUpdate('people', event.target.value);
     }
 
     const handleSetMeals = (value) => {
-        setState({...state, meals: value})
+        handleStateUpdate('meals', value);
     }
 
     const handleSetFoods = (value) => {
-        setState({...state, foods: value})
+        handleStateUpdate('foods', value);
     }
 
     return (

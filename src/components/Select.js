@@ -25,7 +25,7 @@ function Select({ changeFunction, items, header }) {
 
     return (
         <div className="mt-3">
-        <div className="d-flex justify-content-between gap-3">
+        <div className="d-flex justify-content-between gap-3 mt-3">
             <div className="d-flex flex-grow-1">
                 <div className="input-group">
                 <span className="input-group-text">{header}</span>

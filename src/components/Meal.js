@@ -2,8 +2,7 @@ import { useState, useContext } from "react";
 import { PlanContext } from "../contexts/PlanContext";
 
 function Meal({ index, handleSelection, meal }) {
-    const { state } = useContext(PlanContext);
-    const { foods } = state;
+    const { state: { foods } } = useContext(PlanContext);
 
     const [food, setFood] = useState(foods[0]);
 
