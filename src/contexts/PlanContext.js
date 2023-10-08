@@ -10,7 +10,7 @@ const PlanProvider = ({ children }) => {
     const [state, setState] = useState({
       people: 1,
       days: 0,
-      date: new Date(),
+      date: new Date().toLocaleDateString(),
       meals: [],
       language: defaultLanguage,
       foods: [TEXTS[defaultLanguage].noMeal],

@@ -6,9 +6,10 @@ function DateInput() {
   const { state, state: { date, language }, setState } = useContext(PlanContext);
 
   const handleDateChange = (event) => {
-    const [year, month, day] = event.target.value.split('-').map(Number);
-    const newDate = new Date(year, month - 1, day);
-    setState({ ...state, date: newDate });
+    setState({
+      ...state,
+      date: event.target.value
+    })
   };
 
   return (
@@ -17,7 +18,7 @@ function DateInput() {
       <input
         className="form-control"
         type="date"
-        value={date.toISOString().split('T')[0]}
+        value={date}
         onChange={handleDateChange}
       />
     </div>

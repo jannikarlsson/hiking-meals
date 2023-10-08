@@ -8,7 +8,7 @@ function Plan() {
 
     const dateArray = () =>  Array.from({ length: days }, (_, index) => {
         const newDate = new Date(date);
-        newDate.setDate(date.getDate() + index);
+        newDate.setDate(newDate.getDate() + index);
         return newDate;
     });
 
